@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WealthyWallets || Home page</title>
+  <link rel="shortcut icon" href="./images/FavIcon.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body
+  style="background: linear-gradient(to right,rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)),url('https://thumbnails.yayimages.com/1600/0/523/523764.jpg'); background-size: cover;">
+  <!-- prealoader -->
+  <div id="preloader"></div>
+  <!-- prealoader end -->
+
+
+  <div class="container p-lg-5 px-md-2 py-md-5 p-1">
+    <div class="row py-4 px-5 row-gap-3 rounded"
+      style="position: relative; background: #fff; box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;">
+
+      <div id="user_wrapper" class="px-2 py-2 pe-md-1 rounded-pill"
+        style="position: absolute;top: 15px;left: 20px;width: auto;">
+        <span class="mx-2 h6 text-secondary " id="UserName"></span>
+        <span class="text-secondary " id="UserEmail"></span>
+      </div>
+
+      <button class="btn btn-danger" id="logoutBtn" style="width: 80px;position: absolute; right: 30px;"
+        onclick="logout()">Logout</button>
+
+      <div class="col-md-12 my-lg-1 my-4">
+        <hr class="mb-5 mt-4 d-block d-lg-none" style="color: #8a8a8a;">
+        <h1 class="h1 text-center">Budget Calculator</h1>
+      </div>
+
+      <div class="col-md-12 incomeAddBox border border-secondary rounded py-3 px-5"
+        style="box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;">
+        <label for="income" class="h4 px-2 text-success">Add Money</label>
+        <div class="row">
+          <div class="col-12 col-lg-6">
+            <input type="text" id="incomeType" class="border border-secondary form-control my-2"
+              placeholder="Enter Income Type">
+          </div>
+          <div class="col-12 col-lg-6">
+            <input type="number" id="income" class="border border-secondary form-control my-2"
+              placeholder="Enter amount">
+          </div>
+        </div>
+        <div class="row justify-content-center"> <!-- Center align the row -->
+          <div class="col-12 col-lg-6"> <!-- Adjust column width for center alignment -->
+            <button class="btn btn-success btn-sm py-1 px-3 d-block mx-auto"
+              onclick="submitIncome()">&nbsp;&nbsp;Add&nbsp;&nbsp;</button> <!-- Center align the button -->
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-lg-6 col-md-12 expense_box p-0 px-lg-3 py-lg-1">
+        <div class="card px-4"
+          style="width: 100%; box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;">
+          <div class="card-body">
+            <h5 class="card-title text-center">Expense</h5>
+            <input type="text" class="form-control my-lg-4 my-3 border border-secondary" id="expenseType"
+              placeholder="Expense Type">
+            <input type="text" class="form-control mt-lg-4 my-3 border border-secondary" id="expenseAmount"
+              placeholder="Amount">
+            <span id="error-message" class="text-danger"></span>
+            <button class="btn btn-primary d-grid mx-auto mt-4" onclick="submitExpense()">Submit</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-12">
+        <div class="row px-2">
+          <div class="card-body col-6"
+            style="box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px; border-right: 1px solid #ededed; background: #01c8aacb; padding: 1.9rem 0; border-radius: 15px 0 0 15px;">
+            <h5 class="card-title text-center">Balance</h5>
+            <h4 class="card-subtitle h4 mb-2 text-body-secondary py-5 text-center"><span class="h1"
+                id="balanceAmt">0</span> Rs</h4>
+          </div>
+          <div class="card-body col-6"
+            style="background: #f45d7ee9; padding: 1.9rem 0; border-radius: 0 15px 15px 0; box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;">
+            <h5 class="card-title text-center">Spent</h5>
+            <h4 class="card-subtitle h4 mb-2 text-body-secondary py-5 text-center"><span class="h1"
+                id="spendAmt">0</span> Rs</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center position-relative">
+        <button class="btn btn-primary" onclick="viewMore()" id="viewmore">View More</button>
+        <button class="btn btn-warning text-light position-absolute rounded rounded-pill" style="right: 10px;"
+          onclick="clearAll()" id="clear">Clear <i class="fa-solid fa-broom"></i></button>
+      </div>
+
+      <div class="row d-none" id="tableContainer">
+        <div class="col-12 my-3">
+          <hr class="mb-5 mt-3">
+          <h2 class="h2 text-center text-dark">Income & Expense Details</h2>
+        </div>
+
+        <div class="col-lg-6 my-3" id="table_box1">
+          <h4 class="h4">Income</h4>
+          <table class="table table-hover border"
+            style="box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;">
+            <thead>
+              <tr>
+                <th style="background: #ededed; color: #0d0d0d;">Type</th>
+                <th style="background: #ededed; color: #0d0d0d;">Amount</th>
+                <th style="background: #ededed; color: #0d0d0d;">Balance</th>
+                <th style="background: #ededed; color: #0d0d0d;">Date & Time</th>
+              </tr>
+            </thead>
+            <tbody id="IncomeTable"></tbody>
+          </table>
+        </div>
+
+        <div class="col-lg-6 my-3" id="table_box2">
+          <h4 class="h4">Expense</h4>
+          <table class="table table-hover border"
+            style="box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;">
+            <thead class="border">
+              <tr>
+                <th style="background: #ededed;">Type</th>
+                <th style="background: #ededed;">Amount</th>
+                <th style="background: #ededed;">Balance</th>
+                <th style="background: #ededed;">Date & Time</th>
+              </tr>
+            </thead>
+            <tbody id="ExpenseTable"></tbody>
+          </table>
+        </div>
+
+        <div class="col-12 my-3 d-flex justify-content-center">
+          <canvas id="pieChart" style="max-width: 400px; height: auto;"></canvas>
+        </div>
+
+        <div class="col-12">
+          <button class="btn btn-primary" onclick="printDetails()">Print</button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  <!-- chart js cdn -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <!-- chart js -->
+  <script src="./chart.js"></script>
+  <!-- javscript -->
+  <script src="./home.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WealthyWallets ||</title>
+  <!-- Icon -->
+  <link rel="icon" type="image/png" href="https://icon-library.com/images/budget-icon-png/budget-icon-png-14.jpg" />
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <!-- Fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Croissant+One&family=Dancing+Script:wght@400;600;700&family=Inclusive+Sans&family=Jost:wght@300&family=Lobster&family=Merriweather+Sans&family=Playfair+Display:ital,wght@0,700;1,700;1,900&display=swap"
+    rel="stylesheet" />
+  <!-- style.css -->
+  <link rel="stylesheet" href="./style.css" />
+
+  <script src="./script.js"></script>
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="row mx-1">
+      <div class="col-md-6 mb-3 border border-2">
+        <!-- Added p-2 class for padding -->
+        <div id="qr-code-container">
+          <img id="qr-code" src="./images/scanner.png" alt="" />
+        </div>
+        <h3 id="mainhead" class="text-center mt-5">
+          <span id="span1">W</span>ealthy <span id="span2">W</span>allets
+        </h3>
+        <p class="text-center">
+          Budgeting is the first step toward financial freedom
+        </p>
+        <img id="img1" class="img-fluid m-0"
+          src="https://static.vecteezy.com/system/resources/previews/001/879/416/non_2x/planning-monthly-budget-for-shopping-and-purchase-manage-financial-plan-with-calculator-financial-consulting-software-banking-accounting-platform-illustration-of-website-banner-software-poster-free-vector.jpg"
+          alt="" />
+      </div>
+      <div class="col-md-6 mb-3 border border-2" id="col2">
+        <!-- Added p-2 class for padding -->
+        <div id="carouselExampleSlidesOnly" class="carousel slide">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="p-4">
+                <h3 id="loginhead" class="text-center mt-5">Login</h3>
+                <div>
+                  <label for="lname" class="form-label text-muted">UserName:</label>
+                  <span id="error-message-lname" class="text-danger d-block"></span>
+                  <input type="text" id="lname" class="form-control mb-3" />
+                </div>
+                <div>
+                  <label for="lpass" class="form-label text-muted">Password:</label>
+                  <span id="error-message-lpass" class="text-danger d-block"></span>
+                  <input type="password" id="lpass" class="form-control mb-3" />
+                </div>
+                <p class="text-muted text-center mb-0">
+                  Create an account:
+                  <span class="text-primary switchBtn" onclick="RegisterSwitch()">Register</span>
+                </p>
+                <div class="text-center mt-3">
+                  <button class="btn btn-success" onclick="Login()">
+                    Login
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="p-4">
+                <h3 id="loginhead" class="text-center mt-5">Register</h3>
+                <div>
+                  <label for="rname" class="form-label text-muted">UserName:</label>
+                  <span id="error-message-rname" class="text-danger d-block"></span>
+                  <input type="text" id="rname" class="form-control mb-3" />
+                </div>
+                <div>
+                  <label for="remail" class="form-label text-muted">EmailId:</label>
+                  <span id="error-message-remail" class="text-danger d-block"></span>
+                  <input type="text" id="remail" class="form-control mb-3" />
+                </div>
+                <div>
+                  <label for="rpass" class="form-label text-muted">Password:</label>
+                  <span id="error-message-rpass" class="text-danger d-block"></span>
+                  <input type="password" id="rpass" class="form-control mb-3" />
+                </div>
+                <p class="text-muted text-center mb-0">
+                  Already have an account? &nbsp;
+                  <span class="text-primary switchBtn" onclick="LoginSwitch()">Login</span>
+                </p>
+                <div class="text-center mt-3">
+                  <button class="btn btn-success" onclick="Register()">
+                    Register
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap JS and jQuery (optional) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
